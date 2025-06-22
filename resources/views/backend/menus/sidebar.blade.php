@@ -45,31 +45,19 @@
                 @can('sidebar.usuarios')
 
 
+
+
                 <li class="nav-item">
-                    <a href="{{ route('admin.materiales.index') }}" target="frameprincipal" class="nav-link">
+                    <a href="{{ route('admin.productos.index') }}" target="frameprincipal" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Materiales</p>
+                        <p>Productos</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.entrada.registro.index') }}" target="frameprincipal" class="nav-link">
+                    <a href="{{ route('admin.entradas.productos.index') }}" target="frameprincipal" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Entradas</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('admin.salidas.registro.index') }}" target="frameprincipal" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Salidas</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('admin.retorno.registro.index') }}" target="frameprincipal" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Retornos</p>
                     </a>
                 </li>
 
@@ -95,27 +83,16 @@
                         </li>
 
 
-                        <li class="nav-item">
-                            <a href="{{ route('sidebar.historial.salidas') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Salidas</p>
-                            </a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="{{ route('sidebar.historial.retornos') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Retorno</p>
-                            </a>
-                        </li>
+
+
+
                     </ul>
                 </li>
 
 
 
-
-
-                <li class="nav-item">
+                    <li class="nav-item">
 
                     <a href="#" class="nav-link nav-">
                         <i class="far fa-edit"></i>
@@ -134,48 +111,8 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="{{ route('admin.marca.index') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Marca</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('admin.normativa.index') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Normativa</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('admin.distrito.index') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Distrito</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('admin.encargado.index') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Encargado</p>
-                            </a>
-                        </li>
 
 
-                        <li class="nav-item">
-                            <a href="{{ route('admin.talla.index') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Talla</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('admin.color.index') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Color</p>
-                            </a>
-                        </li>
 
 
 
@@ -183,26 +120,7 @@
                 </li>
 
 
-                <li class="nav-item">
 
-                    <a href="#" class="nav-link nav-">
-                        <i class="far fa-edit"></i>
-                        <p>
-                            Reportes
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-
-                    <ul class="nav nav-treeview">
-
-                        <li class="nav-item">
-                            <a href="{{ route('admin.historial.general.index') }}" target="frameprincipal" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>General</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
                 @endcan
 
