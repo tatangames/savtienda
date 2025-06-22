@@ -62,30 +62,41 @@
             width:200px;
             margin-bottom:-70px;
         }
+
+
+        .button-success {
+            background-color: #28a745 !important; /* verde estilo Bootstrap */
+            color: white !important;
+        }
+
     </style>
 </head>
 
 <body>
 <div class="container">
     <div>
-        <div class="demo-container" style="margin-top: 30px">
+        <div class="demo-container" style="margin-top: 65px">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-12 mx-auto">
 
                         <div class="p-5 bg-white rounded shadow-lg">
                             <div class="text-center image-size-small position-relative">
-                                <img src="{{ asset('images/logo.png') }}" class=" p-2">
+                                <img src="{{ asset('images/tienda.jpg') }}" class=" p-2">
                             </div>
                             <h3 class="mb-2 text-center pt-5"><strong>&nbsp;</strong></h3>
-                            <p class="text-center lead" style="font-weight: bold">SEGURIDAD Y SALUD OCUPACIONAL</p>
+                            <p class="text-center lead" style="font-weight: bold">TIENDA MARITZA</p>
                             <form>
                                 <label style="margin-top: 10px" class="font-500">Usuario</label>
                                 <input class="form-control form-control-lg mb-3" id="usuario" autocomplete="off" type="text">
                                 <label class="font-500">Contraseña</label>
                                 <input class="form-control form-control-lg" id="password" type="password">
 
-                                <input type="button" value="ACCEDER" style="margin-top: 25px; width: 100%; font-weight: bold" onclick="login()" class="button button-uppercase button-primary button-pill">
+                                <input type="button" value="ACCEDER"
+                                       style="margin-top: 25px; width: 100%; font-weight: bold"
+                                       onclick="login()"
+                                       class="button button-uppercase button-success button-pill">
+
                             </form>
                         </div>
                     </div>
@@ -134,8 +145,6 @@
         let formData = new FormData();
         formData.append('usuario', usuario);
         formData.append('password', password);
-
-        // seguridad.com/
 
         axios.post('/admin/login', formData, {
         })

@@ -8,22 +8,20 @@
                             <thead>
                             <tr>
                                 <th style="width: 8%">ID</th>
-                                <th style="width: 14%">Permiso</th>
-                                <th style="width: 14%">Descripción</th>
+                                <th style="width: 12%">Permiso</th>
                                 <th style="width: 10%">Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @foreach($permisos as $ll)
+                            @foreach($permisos as $key => $value)
                                 <tr>
-                                    <td>{{ $ll->id }}</td>
-                                    <td>{{ $ll->name }}</td>
-                                    <td>{{ $ll->description }}</td>
+                                    <td>{{ $key }}</td>
+                                    <td>{{ $value }}</td>
 
                                     <td>
-                                        <button type="button" style="font-weight: bold" class="button button-caution button-rounded button-pill button-tiny" onclick="modalBorrar({{ $ll->id }})">
-                                            <i class="fas fa-trash-alt" title="Eliminar Global"></i>&nbsp; Eliminar Global
+                                        <button type="button" style="font-weight: bold" class="btn-xs btn btn-danger" onclick="modalBorrar({{ $key }})">
+                                            <i class="fas fa-trash-alt" title="Eliminar"></i>&nbsp; Eliminar
                                         </button>
                                     </td>
                                 </tr>
@@ -76,6 +74,7 @@
                     "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
+
             },
             "responsive": true, "lengthChange": true, "autoWidth": false,
         });

@@ -7,25 +7,36 @@
                         <table id="tabla" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th style="width: 8%">ID</th>
-                                <th style="width: 12%">Permiso</th>
+                                <th style="width: 6%">ID</th>
+                                <th style="width: 10%">Nombre</th>
+                                <th style="width: 10%">Rol</th>
+                                <th style="width: 10%">Usuario</th>
+                                <th style="width: 8%">Activo</th>
                                 <th style="width: 10%">Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @foreach($permisos as $key => $value)
+                            @foreach($usuarios as $dato)
                                 <tr>
-                                    <td>{{ $key }}</td>
-                                    <td>{{ $value }}</td>
+                                    <td>{{ $dato->id }}</td>
+                                    <td>{{ $dato->nombre }}</td>
+                                    <td>{{ $dato->roles->implode('name', ', ') }}</td>
+                                    <td>{{ $dato->usuario }}</td>
+
+                                    @if($dato->activo == 0)
+                                        <td> <span class="badge bg-danger">Inactivo</span></td>
+                                    @else
+                                        <td> <span class="badge bg-success">Activo</span></td>
+                                    @endif
 
                                     <td>
-                                        <button type="button" style="font-weight: bold" class="button button-caution button-pill button-small" onclick="modalBorrar({{ $key }})">
-                                            <i class="fas fa-trash-alt" title="Eliminar"></i>&nbsp; Eliminar
+                                        <button type="button" class="btn-xs btn btn-primary" onclick="verInformacion({{ $dato->id }})">
+                                            <i class="fas fa-pencil-alt" title="Editar"></i>&nbsp; Editar
                                         </button>
                                     </td>
-                                </tr>
 
+                                </tr>
                             @endforeach
 
                             </tbody>
@@ -50,6 +61,7 @@
             "autoWidth": false,
             "pagingType": "full_numbers",
             "lengthMenu": [[10, 25, 50, 100, 150, -1], [10, 25, 50, 100, 150, "Todo"]],
+
             "language": {
 
                 "sProcessing": "Procesando...",
@@ -77,6 +89,7 @@
 
             },
             "responsive": true, "lengthChange": true, "autoWidth": false,
+
         });
     });
 

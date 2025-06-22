@@ -3,34 +3,31 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <!-- /.card-header -->
                     <div class="card-body">
                         <table id="tabla" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th style="width: 4%">ID</th>
-                                <th style="width: 10%">Rol</th>
-                                <th style="width: 8%">Opciones</th>
+                                <th style="width: 8%">ID</th>
+                                <th style="width: 14%">Permiso</th>
+                                <th style="width: 14%">Descripción</th>
+                                <th style="width: 10%">Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @foreach($roles as $key => $value)
+                            @foreach($permisos as $ll)
                                 <tr>
-                                    <td style="width: 4%">{{ $key }}</td>
-                                    <td style="width: 10%">{{ $value }}</td>
+                                    <td>{{ $ll->id }}</td>
+                                    <td>{{ $ll->name }}</td>
+                                    <td>{{ $ll->description }}</td>
 
-                                    <td style="width: 8%">
-
-                                        <button type="button" style="font-weight: bold" class="button button-primary button-pill button-small" onclick="verInformacion({{ $key }})">
-                                            <i class="fas fa-pencil-alt" title="Editar"></i>&nbsp; Editar
-                                        </button>
-
-                                        <button type="button" style="margin-top: 5px; font-weight: bold" class="button button-caution button-pill button-small" onclick="modalBorrar({{ $key }})">
-                                            <i class="fas fa-trash-alt" title="Eliminar"></i>&nbsp; Eliminación Global
+                                    <td>
+                                        <button type="button" class="btn-xs btn btn-danger" onclick="modalBorrar({{ $ll->id }})">
+                                            <i class="fas fa-trash-alt" title="Eliminar Global"></i>&nbsp; Eliminar Global
                                         </button>
                                     </td>
                                 </tr>
+
                             @endforeach
 
                             </tbody>
@@ -79,11 +76,9 @@
                     "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
-
             },
             "responsive": true, "lengthChange": true, "autoWidth": false,
         });
     });
-
 
 </script>

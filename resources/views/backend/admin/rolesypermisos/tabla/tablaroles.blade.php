@@ -3,39 +3,33 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <!-- /.card-header -->
                     <div class="card-body">
                         <table id="tabla" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th style="width: 6%">ID</th>
-                                <th style="width: 10%">Nombre</th>
+                                <th style="width: 4%">ID</th>
                                 <th style="width: 10%">Rol</th>
-                                <th style="width: 10%">Usuario</th>
-                                <th style="width: 8%">Activo</th>
-                                <th style="width: 10%">Opciones</th>
+                                <th style="width: 6%">Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @foreach($usuarios as $dato)
+                            @foreach($roles as $key => $value)
                                 <tr>
-                                    <td>{{ $dato->id }}</td>
-                                    <td>{{ $dato->nombre }}</td>
-                                    <td>{{ $dato->roles->implode('name', ', ') }}</td>
-                                    <td>{{ $dato->usuario }}</td>
-
-                                    @if($dato->activo == 0)
-                                        <td> <span class="badge bg-danger">Inactivo</span></td>
-                                    @else
-                                        <td> <span class="badge bg-success">Activo</span></td>
-                                    @endif
+                                    <td>{{ $key }}</td>
+                                    <td>{{ $value }}</td>
 
                                     <td>
-                                        <button type="button" style="font-weight: bold" class="button button-primary button-pill button-small" onclick="verInformacion({{ $dato->id }})">
+
+                                        <button type="button" class="btn-xs btn btn-primary" onclick="verInformacion({{ $key }})">
                                             <i class="fas fa-pencil-alt" title="Editar"></i>&nbsp; Editar
                                         </button>
-                                    </td>
 
+                                        <button type="button" style="margin: 5px" class="btn-xs btn btn-danger" onclick="modalBorrar({{ $key }})">
+                                            <i class="fas fa-trash-alt" title="Eliminar"></i>&nbsp; Eliminación Global
+                                        </button>
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -61,7 +55,6 @@
             "autoWidth": false,
             "pagingType": "full_numbers",
             "lengthMenu": [[10, 25, 50, 100, 150, -1], [10, 25, 50, 100, 150, "Todo"]],
-
             "language": {
 
                 "sProcessing": "Procesando...",
@@ -89,8 +82,8 @@
 
             },
             "responsive": true, "lengthChange": true, "autoWidth": false,
-
         });
     });
+
 
 </script>
