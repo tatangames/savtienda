@@ -225,23 +225,9 @@
                 });
         }
 
-
-
-
-
-
-
-
-
-
-
-
         function infoNuevoIngreso(id){
             window.location.href="{{ url('/admin/historial/nuevoingresoentradadetalle/index') }}/" + id;
         }
-
-
-
 
 
     </script>

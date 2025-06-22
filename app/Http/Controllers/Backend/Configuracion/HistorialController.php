@@ -254,13 +254,14 @@ class HistorialController extends Controller
         // id: es de entradas
         $info = EntregaProductos::where('id', $id)->first();
 
-        return view('backend.admin.historial.entradas.detalle.vistaingresoextra', compact('id', 'info'));
+        $fechaFormat = date("d-m-Y", strtotime($info->fecha));
+
+        return view('backend.admin.historial.entradas.detalle.vistaingresoextra', compact('id', 'info', 'fechaFormat'));
     }
 
 
     public function registrarProductosExtras(Request $request)
     {
-
         $regla = array(
             'identrada' => 'required',
         );
@@ -280,13 +281,15 @@ class HistorialController extends Controller
 
             foreach ($datosContenedor as $filaArray) {
 
+                $infoProducto = Productos::where('id', $filaArray['infoIdProducto'])->first();
+                $subtotal = $filaArray['infoCantidad'] * $infoProducto->precio;
+
                 $detalle = new EntregaProductosDetalle();
-                $detalle->id_entradas = $request->identrada;
-                $detalle->id_material = $filaArray['infoIdProducto'];
+                $detalle->id_entregaproductos = $request->identrada;
+                $detalle->id_producto = $filaArray['infoIdProducto'];
                 $detalle->cantidad = $filaArray['infoCantidad'];
-                $detalle->cantidad_inicial = $filaArray['infoCantidad'];
-                $detalle->precio = $filaArray['infoPrecio'];
-                $detalle->cantidad_entregada = 0;
+                $detalle->precio_venta = $infoProducto->precio;
+                $detalle->subtotal = $subtotal; // cantidad * precio unitario
                 $detalle->save();
             }
 
