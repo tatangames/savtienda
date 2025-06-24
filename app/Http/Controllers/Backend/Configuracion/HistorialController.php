@@ -68,7 +68,7 @@ class HistorialController extends Controller
         $validar = Validator::make($request->all(), $regla);
 
         if ($validar->fails()){return ['success' => 0];}
-
+        DB::beginTransaction();
         try {
 
             EntregaProductos::where('id', $request->id)->update([

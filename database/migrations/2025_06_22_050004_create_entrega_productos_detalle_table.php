@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('cantidad');
 
             // se pondra una copia de precio, ya que puede cambiar
-            $table->integer('precio_venta');
+            $table->decimal('precio_venta', 10, 2);
 
             // cantidad * precio unitario
             $table->decimal('subtotal', 10, 2);

@@ -55,15 +55,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-5">
-                                <label>Unidad de Medida:</label>
-                                <br>
-                                <select width="70%"  class="form-control" id="select-trabajador-nuevo">
-                                    @foreach($arrayTrabajadores as $sel)
-                                        <option value="{{ $sel->id }}">{{ $sel->nombre }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+
 
 
                             <div style="margin-left: 8px; margin-right: 15px; margin-top: 15px;">
@@ -75,7 +67,7 @@
 
                             <div class="form-group" style="float: right">
                                 <br>
-                                <button type="button" onclick="abrirModal()" class="btn btn-primary btn-sm float-right" style="margin-top:10px; margin-right: 15px;">
+                                <button type="button" onclick="prueba()" class="btn btn-primary btn-sm float-right" style="margin-top:10px; margin-right: 15px;">
                                     <i class="fas fa-plus" title="Agregar Material"></i> Buscar Producto</button>
                             </div>
                         </div>
@@ -220,6 +212,23 @@
                 event.preventDefault();
             }
         });
+
+        function prueba(){
+
+
+            axios.post(url+'/cierres/prueba', {
+            })
+                .then((response) => {
+                    closeLoading();
+
+                    console.log(response)
+
+                })
+                .catch((error) => {
+                    toastr.error('error al guardar');
+                    closeLoading();
+                });
+        }
 
         function abrirModal(){
             document.getElementById("formulario-repuesto").reset();

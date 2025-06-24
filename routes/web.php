@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\Roles\PermisoController;
 use App\Http\Controllers\Backend\Configuracion\ConfiguracionController;
 use App\Http\Controllers\Backend\Productos\ProductosController;
 use App\Http\Controllers\Backend\Configuracion\HistorialController;
+use App\Http\Controllers\Backend\Cierres\CierresController;
 
 
 // --- LOGIN ---
@@ -78,8 +79,6 @@ Route::post('/admin/entradas/guardar',  [ProductosController::class,'guardarNuev
 
 
 
-
-
 // HISTORIAL - ENTRADAS
 Route::get('/admin/historial/entrada/index', [HistorialController::class,'indexHistorialEntradas'])->name('sidebar.historial.entradas');
 Route::get('/admin/historial/entrada/tabla', [HistorialController::class,'tablaHistorialEntradas']);
@@ -103,6 +102,16 @@ Route::post('/admin/historial/entrada/borrarlote', [HistorialController::class, 
 Route::post('/admin/historial/entradadetalle/borraritem', [HistorialController::class, 'historialEntradaDetalleBorrarItem']);
 
 
+// PAGOS
+Route::get('/admin/pagos/index', [ConfiguracionController::class,'vistaPagos'])->name('admin.pagos.index');
+Route::get('/admin/pagos/tabla', [ConfiguracionController::class,'tablaPagos']);
+Route::post('/admin/pagos/nuevo', [ConfiguracionController::class,'registrarPago']);
+Route::post('/admin/pagos/informacion', [ConfiguracionController::class,'informacionPago']);
+Route::post('/admin/pagos/editar', [ConfiguracionController::class,'editarPago']);
 
+
+// CIERRES
+Route::get('/admin/cierres/index', [CierresController::class,'indexCierres'])->name('admin.cierres.index');
+Route::post('/admin/cierres/prueba', [CierresController::class,'ejemplo']);
 
 

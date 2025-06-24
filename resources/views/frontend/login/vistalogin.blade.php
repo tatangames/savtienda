@@ -26,7 +26,8 @@
         }
         body {
             font-family: 'Roboto', sans-serif;
-            background-image: url({{ asset('images/fondo3.jpg') }});
+           /* background-image: url({{ asset('images/fondo3.jpg') }}); */
+            background-color: #2d3238;
         }
 
         .demo-container {

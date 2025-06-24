@@ -62,6 +62,21 @@
                 </li>
 
 
+                <li class="nav-item">
+                    <a href="{{ route('admin.pagos.index') }}" target="frameprincipal" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pagos</p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.cierres.index') }}" target="frameprincipal" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Cierres</p>
+                    </a>
+                </li>
+
 
                 <li class="nav-item">
 

@@ -7,17 +7,15 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * registro de productos entregados al trabajador
-     * SOLO HABRA 1 TRABAJADOR
+     * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('entrega_productos', function (Blueprint $table) {
+        Schema::create('fondo_iniciales', function (Blueprint $table) {
             $table->id();
-
             $table->bigInteger('id_trabajador')->unsigned();
-
             $table->date('fecha');
+            $table->decimal('monto', 10, 2);
             $table->string('descripcion', 300)->nullable();
 
             $table->foreign('id_trabajador')->references('id')->on('trabajadores');
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('entrega_productos');
+        Schema::dropIfExists('fondo_iniciales');
     }
 };

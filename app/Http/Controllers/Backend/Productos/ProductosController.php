@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EntregaProductos;
 use App\Models\EntregaProductosDetalle;
 use App\Models\Productos;
+use App\Models\Trabajadores;
 use App\Models\UnidadMedida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -123,7 +124,9 @@ class ProductosController extends Controller
 
     public function vistaEntradasProductos()
     {
-        return view('backend.admin.registro.entrada.vistaentrada');
+        $arrayTrabajadores = Trabajadores::orderBy('nombre', 'ASC')->get();
+
+        return view('backend.admin.registro.entrada.vistaentrada', compact('arrayTrabajadores'));
     }
 
 
@@ -182,7 +185,8 @@ class ProductosController extends Controller
     {
         $rules = array(
             'fecha' => 'required',
-        );
+            'idTrabajador' =>  'required',
+         );
 
         // descripcion
 
@@ -202,6 +206,7 @@ class ProductosController extends Controller
             $registro = new EntregaProductos();
             $registro->fecha = $request->fecha;
             $registro->descripcion = $request->descripcion;
+            $registro->id_trabajador = $request->idTrabajador;
             $registro->save();
 
             // idMaterial    infoCantidad
